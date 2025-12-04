@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="jack.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+   <style>
+    body{
+      background-image: url("cloudy-blue-sky-stockcake.jpg");
+      background-size: cover;
+    }
+     .traffic-light {
+      width: 100px;
+      height: 250px;
+      float: right;
+      background-color: #333;
+      border-radius: 20px;
+      padding: 20px;
+      align-items: center;
+      justify-content: space-around;
+
+    }
+    .light {
+      width: 60px;
+      height: 60px;
+      background-color: grey;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #000;
+      justify-content: space-around;
+    }
+   .light.red.active {
+      background-color: red;
+    }
+    .light.green.active {
+      background-color: green;
+    }
+    #car {
+      width: 300px;
+      position: relative;
+      transition: transform 2s linear;
+      float: left;
+    }
+    .move {
+      transform: translateX(1500px);
+    }
+
+      .button{
+            border: none;
+            color:black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 10px;
+            margin: 4px 2px;
+            cursor: pointer;
+      }
+      #boy {
+          width: 100px;
+          height: 110px;
+          position: relative;
+          transition: transform 2s linear;
+          float:center;
+
+      }
+</style>
+</head>
+<body class="bg-light text-center p-5">
+  <h2 class="mb-4">🚦 Flight Start & Stop Signal System</h2>
+  <div class="traffic-light">
+    <div class="light red" id="redLight"></div>
+    <div class="light green" id="greenLight"></div>
+    <div class="light yellow" id="yellowlight"></div>
+  </div>
+  <div class="d-flex justify-content-center gap-3 mt-3">
+     <button class="btn btn-success" id="startCar">Start </button>
+    <button class="btn btn-danger" id="stopCar">Stop </button>
+</div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="my-4">
+    <img src="download (1).png" id="car" alt="car" width="500px" height="300px">
+  </div>
+  <br>
+  <br>
+  <br>
+
+  <script>
+  $(document).ready(function() {
+  $('#startCar').click(function() {
+    $('#redLight').removeClass('active');
+    $('#greenLight').addClass('active');
+    $('body').css('background-color', 'red');
+
+    $('#car').css('transition', 'transform 2s linear');
+    $('#car').addClass('move');
+  });
+
+  $('#stopCar').click(function() {
+    $('#greenLight').removeClass('active');
+    $('#redLight').addClass('active');
+    $('body').css('background-color', '#f8d7da');
+      const car = $('#car');
+    const currentTransform = car.css('transform');
+       car.css({
+      'transform': currentTransform,
+      'transition': 'none'
+    });
+  });
+});
+    </script>
+   </style>
+</head>
+<body>
+   
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</html>
